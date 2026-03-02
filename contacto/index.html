@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Formulario de Contacto - Desing Data | ¡Su aliado estratégico en el ecosistema digital!">
+    <meta property="og:description" content="Nos especializamos en materializar proyectos mediante Diseño Web y Gráfico, optimizar 
+    resultados a través de la Análisis y Visualización de Datos, y conectar audiencias con contenido en Video. Creemos en el 
+    conocimiento compartido, por lo que ofrecemos Cursos especializados en TIC para fortalecer las competencias tecnológicas del mañana.">
+    <title>Formulario de Contacto - Desing Data | ¡Su aliado estratégico en el ecosistema digital!</title>
+    <link rel="icon" href="https://desingdata.github.io/desingdata/img/DesingData_favicon-96x96.png" sizes="96x96" type="image/png">
+    <style>
+        @import url('./css/styles.css');
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-header">
+                <div>Formulario de Contacto</div>
+                <div><span id="currentStep">1</span>/4</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="step-indicator">
+            <div class="step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Datos</div>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Asunto</div>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Mensaje</div>
+            </div>
+            <div class="step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Resumen</div>
+            </div>
+        </div>
+
+        <form id="contactForm">
+            <div class="form-container">
+                <!-- PASO 1 -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-title">👤 Información de Contacto</div>
+                    <div class="step-subtitle">Cuéntanos quién eres</div>
+                    <div class="form-group"><label for="nombre">Nombre <span class="required">*</span></label><input
+                            type="text" id="nombre" placeholder="Juan Pérez García" required>
+                        <div class="field-error" id="error-nombre">⚠ Mínimo 3 caracteres</div>
+                    </div>
+                    <div class="form-group"><label for="email">Correo <span class="required">*</span></label><input
+                            type="email" id="email" placeholder="juan@example.com" required>
+                        <div class="field-error" id="error-email">⚠ Email inválido</div>
+                    </div>
+                    <div class="form-group"><label for="telefono">Teléfono <span class="required">*</span></label><input
+                            type="tel" id="telefono" placeholder="+57 300 123 4567" required>
+                        <div class="field-error" id="error-telefono">⚠ Mínimo 7 dígitos</div>
+                    </div>
+                    <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa"
+                            placeholder="Mi Empresa"></div>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="form-step" data-step="2">
+                    <div class="step-title">📌 Asunto</div>
+                    <div class="step-subtitle">¿Cuál es el motivo?</div>
+                    <div class="form-group"><label>Selecciona <span class="required">*</span></label>
+                        <div class="subjects-grid" id="subjectsGrid"></div>
+                        <div class="field-error" id="error-subject">⚠ Selecciona un asunto</div>
+                    </div>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="form-step" data-step="3">
+                    <div class="step-title">✍️ Tu Mensaje</div>
+                    <div class="step-subtitle">Cuéntanos más</div>
+                     <div class="form-group"><label for="presupuesto">Asunto:</label><input type="text"
+                            id="presupuesto" placeholder="Escriba el Asunto"></div>
+                    <div class="form-group"><label for="mensaje">Mensaje <span
+                                class="required">*</span></label><textarea id="mensaje" placeholder="Describa detalladamente su asunto..."
+                            required></textarea>
+                        <div class="field-error" id="error-mensaje">⚠ Mínimo 10 caracteres</div>
+                    </div>
+                   
+                </div>
+
+                <!-- PASO 4 -->
+                <div class="form-step" data-step="4">
+                    <div class="step-title">✅ Verifica</div>
+                    <div class="step-subtitle">Revisa antes de enviar</div>
+                    <div id="summaryContent"></div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button type="button" class="btn-prev" onclick="previousStep()" id="btnPrev" disabled>←
+                    Anterior</button>
+                <button type="button" class="btn-next" onclick="nextStep()" id="btnNext">Siguiente →</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <strong>¡Mensaje enviado!</strong>
+                <div style="margin-top: 5px; font-size: 0.9em;">Nos contactaremos pronto</div>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
