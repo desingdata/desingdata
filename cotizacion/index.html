@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Cotización - Servicios Digitales - Desing Data | ¡Su aliado estratégico en el ecosistema digital!</title>
+    <link rel="icon" href="https://desingdata.github.io/desingdata/img/DesingData_favicon-96x96.png" sizes="96x96" type="image/png">
+    <meta property="og:title" content="Formulario de Cotización - Servicios Digitales - Desing Data | ¡Su aliado estratégico en el ecosistema digital!">
+    <meta property="og:description" content="Nos especializamos en materializar proyectos mediante Diseño Web y Gráfico, optimizar 
+    resultados a través de la Análisis y Visualización de Datos, y conectar audiencias con contenido en Video. Creemos en el 
+    conocimiento compartido, por lo que ofrecemos Cursos especializados en TIC para fortalecer las competencias tecnológicas del mañana.">
+    <style>
+        @import url('./css/styles.css');
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <div class="progress-title">Solicitud de Cotización</div>
+                <div class="progress-counter"><span id="currentStep">1</span>/5</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator">
+            <div class="step active" data-step="1">
+                <div class="step-circle">1</div>
+                <div class="step-label">Datos</div>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-circle">2</div>
+                <div class="step-label">Documento</div>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-circle">3</div>
+                <div class="step-label">Servicios</div>
+            </div>
+            <div class="step" data-step="4">
+                <div class="step-circle">4</div>
+                <div class="step-label">Detalles</div>
+            </div>
+            <div class="step" data-step="5">
+                <div class="step-circle">5</div>
+                <div class="step-label">Resumen</div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <form id="cotizationForm">
+            <div class="form-container">
+                <!-- PASO 1: Información de Contacto -->
+                <div class="form-step active" data-step="1">
+                    <div class="step-title">📋 Datos de Contacto</div>
+                    <div class="step-subtitle">Cuéntanos quién eres</div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo <span class="required">*</span></label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez García" required>
+                        <div class="field-error" id="error-nombre">⚠ Ingresa un nombre válido (mínimo 3 caracteres)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="juan@example.com" required>
+                        <div class="field-error" id="error-email">⚠ Ingresa un correo válido</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono <span class="required">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+57 300 123 4567" required>
+                        <div class="field-error" id="error-telefono">⚠ Teléfono inválido (mínimo 7 dígitos)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Negocio</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Mi Empresa S.A.S">
+                        <div class="field-error" id="error-empresa">⚠ Nombre de empresa inválido</div>
+                    </div>
+                </div>
+
+                <!-- PASO 2: Información de Documento -->
+                <div class="form-step" data-step="2">
+                    <div class="step-title">🆔 Información de Documento</div>
+                    <div class="step-subtitle">Datos de identificación</div>
+
+                    <div class="form-group">
+                        <label for="tipoDocumento">Tipo de Documento <span class="required">*</span></label>
+                        <select id="tipoDocumento" name="tipoDocumento" required>
+                            <option value="">Selecciona un tipo...</option>
+                            <option value="CC">Cédula de Ciudadanía (CC)</option>
+                            <option value="CE">Cédula de Extranjería (CE)</option>
+                            <option value="PP">Pasaporte (PP)</option>
+                            <option value="TI">Tarjeta de Identidad (TI)</option>
+                            <option value="PEP">Permiso Especial de Permanencia (PEP)</option>
+                            <option value="NIT">NIT</option>
+                        </select>
+                        <div class="field-error" id="error-tipoDocumento">⚠ Selecciona un tipo de documento</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numeroDocumento">Número de Documento <span class="required">*</span></label>
+                        <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="1234567890"
+                            required>
+                        <div class="field-error" id="error-numeroDocumento">⚠ Número inválido (solo números, mínimo 5)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 3: Seleccionar Servicios -->
+                <div class="form-step" data-step="3">
+                    <div class="step-title">🎯 Selecciona Servicios</div>
+                    <div class="step-subtitle">¿Qué servicios necesitas?</div>
+
+                    <div class="services-grid" id="servicesGrid">
+                        <!-- Se generarán con JavaScript -->
+                    </div>
+
+                    <div class="field-error" id="error-services">⚠ Selecciona al menos un servicio</div>
+                </div>
+
+                <!-- PASO 4: Detalles Adicionales -->
+                <div class="form-step" data-step="4">
+                    <div class="step-title">💬 Detalles Adicionales</div>
+                    <div class="step-subtitle">Cuéntanos más sobre tu proyecto</div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Descripción del Proyecto</label>
+                        <textarea id="descripcion" name="descripcion"
+                            placeholder="Cuéntanos más sobre tu proyecto, objetivos y requisitos específicos..."></textarea>
+                        <div class="field-error" id="error-descripcion">⚠ Mínimo 10 caracteres</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="presupuesto">Rango de Presupuesto</label>
+                        <select id="presupuesto" name="presupuesto">
+                            <option value="">Selecciona un rango...</option>
+                            <option value="5000000-10000000">$5.000.000 - $10.000.000 COP</option>
+                            <option value="10000000-25000000">$10.000.000 - $25.000.000 COP</option>
+                            <option value="25000000-50000000">$25.000.000 - $50.000.000 COP</option>
+                            <option value="50000000+">$50.000.000+ COP</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- PASO 5: Resumen -->
+                <div class="form-step" data-step="5">
+                    <div class="step-title">✅ Resumen de tu Cotización</div>
+                    <div class="step-subtitle">Verifica tus datos antes de enviar</div>
+
+                    <div id="summaryContent">
+                        <div class="empty-services">Cargando resumen...</div>
+                    </div>
+
+                    <div class="summary-container">
+                        <div class="summary-title">💰 Presupuesto Estimado</div>
+                        <div id="budgetSummary">
+                            <div class="empty-services">Selecciona servicios para ver el presupuesto</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-container">
+                <button type="button" class="btn-prev" onclick="previousStep()" id="btnPrev" disabled>←
+                    Anterior</button>
+                <button type="button" class="btn-next" onclick="nextStep()" id="btnNext">Siguiente →</button>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <div><strong>¡Solicitud enviada exitosamente!</strong></div>
+                <div style="margin-top: 5px; font-size: 0.9em;">Nos pondremos en contacto pronto</div>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
